@@ -1,0 +1,527 @@
+Started GET "/" for 127.0.0.1 at 2024-12-03 10:43:30 +0900
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-6.1.7.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-6.1.7.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.9ms | Allocations: 571)
+Completed 200 OK in 18ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 4331)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 10:46:25 +0900
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-6.1.7.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-6.1.7.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.8ms | Allocations: 571)
+Completed 200 OK in 17ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 4346)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 10:46:59 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 13.3ms | Allocations: 330)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+(node:3876) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+node:internal/crypto/hash:71
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:71:19)
+    at Object.createHash (node:crypto:133:10)
+    at module.exports (C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\webpack\lib\util\createHash.js:135:53)
+    at Compilation.createHash (C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\webpack\lib\Compilation.js:1918:16)
+    at C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\webpack\lib\Compilation.js:1386:9
+    at AsyncSeriesHook.eval [as callAsync] (eval at create (C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\tapable\lib\HookCodeFactory.js:33:10), <anonymous>:6:1)
+    at AsyncSeriesHook.lazyCompileHook (C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\tapable\lib\Hook.js:154:20)
+    at Compilation.seal (C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\webpack\lib\Compilation.js:1342:27)
+    at C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\webpack\lib\Compiler.js:675:18
+    at C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\webpack\lib\Compilation.js:1261:4
+    at AsyncSeriesHook.eval [as callAsync] (eval at create (C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\tapable\lib\HookCodeFactory.js:33:10), <anonymous>:15:1)
+    at AsyncSeriesHook.lazyCompileHook (C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\tapable\lib\Hook.js:154:20)
+    at Compilation.finish (C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\webpack\lib\Compilation.js:1253:28)
+    at C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\webpack\lib\Compiler.js:672:17
+    at eval (eval at create (C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\tapable\lib\HookCodeFactory.js:33:10), <anonymous>:11:1)
+    at C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\webpack\lib\Compilation.js:1185:12
+    at errorAndCallback (C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\webpack\lib\Compilation.js:1044:6)
+    at C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\webpack\lib\Compilation.js:1075:14
+    at C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\webpack\lib\NormalModuleFactory.js:401:22
+    at C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\webpack\lib\NormalModuleFactory.js:130:21
+    at C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\webpack\lib\NormalModuleFactory.js:337:24
+    at C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\neo-async\async.js:2830:7
+    at C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\neo-async\async.js:6877:13
+    at C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\neo-async\async.js:2830:7
+    at done (C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\neo-async\async.js:2925:13)
+    at C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\webpack\lib\NormalModuleFactory.js:449:23
+    at C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\enhanced-resolve\lib\Resolver.js:213:14
+    at C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\enhanced-resolve\lib\Resolver.js:285:5
+    at eval (eval at create (C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\tapable\lib\HookCodeFactory.js:33:10), <anonymous>:15:1)
+    at C:\Users\js2314\JS2314奥村大策\WeekSApp\node_modules\enhanced-resolve\lib\UnsafeCachePlugin.js:44:7 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v18.15.0
+
+  Rendered layout layouts/application.html.erb (Duration: 1781.8ms | Allocations: 24268)
+Completed 500 Internal Server Error in 1788ms (Allocations: 25707)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in C:/Users/js2314/JS2314奥村大策/WeekSApp/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 127.0.0.1 at 2024-12-03 10:47:36 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 324)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 658)
+Completed 200 OK in 5ms (Views: 4.0ms | Allocations: 1933)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 10:47:59 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 125)
+Completed 200 OK in 3ms (Views: 3.0ms | Allocations: 572)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 10:48:21 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 147)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 480)
+Completed 200 OK in 13ms (Views: 11.7ms | Allocations: 1728)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 10:49:30 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 684)
+Completed 200 OK in 25ms (Views: 23.5ms | Allocations: 1939)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 10:49:57 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 117)
+Completed 200 OK in 3ms (Views: 2.4ms | Allocations: 511)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:05:51 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 17.6ms | Allocations: 685)
+Completed 200 OK in 23ms (Views: 21.8ms | Allocations: 1898)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/12%E6%9C%88.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/12%E6%9C%88.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/12%E6%9C%88.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/12%E6%9C%88.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/12%E6%9C%88.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/12%E6%9C%88.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/12%E6%9C%88.png"):
+  
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:06:05 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 147)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 684)
+Completed 200 OK in 9ms (Views: 7.0ms | Allocations: 1916)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:06:45 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 149)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 687)
+Completed 200 OK in 11ms (Views: 9.2ms | Allocations: 1940)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/12%E6%9C%88.png"):
+  
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:06:46 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 117)
+Completed 200 OK in 6ms (Views: 5.4ms | Allocations: 489)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/12%E6%9C%88.png"):
+  
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:07:38 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 149)
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 688)
+Completed 200 OK in 24ms (Views: 22.5ms | Allocations: 1900)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:10:40 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 151)
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 707)
+Completed 200 OK in 24ms (Views: 22.9ms | Allocations: 1964)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:10:50 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 686)
+Completed 200 OK in 23ms (Views: 21.4ms | Allocations: 1938)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:12:06 +0900
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 439)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 1004)
+Completed 200 OK in 17ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 5204)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:23:49 +0900
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 439)
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 1018)
+Completed 200 OK in 33ms (Views: 23.9ms | ActiveRecord: 0.0ms | Allocations: 5218)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/dragon.png"):
+  
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:24:35 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 125)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 579)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/dragon.png"):
+  
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:25:46 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 117)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 476)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:25:59 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | Allocations: 117)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 476)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:27:45 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 117)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 475)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:27:50 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 117)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 475)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:28:10 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 118)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 481)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:28:45 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 117)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 476)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:35:22 +0900
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 439)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1018)
+Completed 200 OK in 18ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 5218)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:36:31 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 125)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 575)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-03 11:36:44 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 118)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms | Allocations: 482)
+
+
+Started GET "/hello/index" for ::1 at 2024-12-13 09:38:06 +0900
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActionController::RoutingError (No route matches [GET] "/hello/index"):
+  
+Started GET "/" for ::1 at 2024-12-13 09:38:10 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 708)
+Completed 200 OK in 10ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 3557)
+
+
+Started GET "/" for ::1 at 2024-12-13 09:49:06 +0900
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 439)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1018)
+Completed 200 OK in 20ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 5218)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-13 09:49:29 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 41)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 123)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 574)
+
+
+Started GET "/" for ::1 at 2024-12-13 09:49:35 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 118)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 481)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-13 09:49:35 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 118)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 481)
+
+
+Started GET "/" for ::1 at 2024-12-13 09:49:47 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 117)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 476)
+
+
+Started GET "/" for ::1 at 2024-12-13 09:50:14 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 118)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 482)
+
+
+Started GET "/" for ::1 at 2024-12-13 09:50:22 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 117)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 475)
+
+
+Started GET "/" for ::1 at 2024-12-13 10:06:03 +0900
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 439)
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | Allocations: 1022)
+Completed 200 OK in 34ms (Views: 25.1ms | ActiveRecord: 0.0ms | Allocations: 5222)
+
+
+Started GET "/" for ::1 at 2024-12-13 10:07:08 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 701)
+Completed 200 OK in 24ms (Views: 22.2ms | ActiveRecord: 0.0ms | Allocations: 2014)
+
+
+Started GET "/" for ::1 at 2024-12-13 10:26:40 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 709)
+Completed 200 OK in 25ms (Views: 23.8ms | Allocations: 1961)
+
+
+Started GET "/" for ::1 at 2024-12-13 10:28:01 +0900
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 439)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1027)
+Completed 200 OK in 17ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 5227)
+
+
+Started GET "/" for ::1 at 2024-12-13 10:47:45 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 41)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 123)
+Completed 200 OK in 3ms (Views: 2.4ms | Allocations: 570)
+
+
+Started GET "/" for ::1 at 2024-12-13 10:47:46 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 118)
+Completed 200 OK in 3ms (Views: 2.5ms | Allocations: 478)
+
+
+Started GET "/" for ::1 at 2024-12-13 10:49:04 +0900
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 439)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 1027)
+Completed 200 OK in 17ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 5227)
+
+
+Started GET "/" for ::1 at 2024-12-13 12:51:47 +0900
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 439)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1027)
+Completed 200 OK in 18ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 5227)
+
+
+Started GET "/" for ::1 at 2024-12-17 11:55:31 +0900
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 439)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 1134)
+Completed 200 OK in 37ms (Views: 26.9ms | ActiveRecord: 0.0ms | Allocations: 5334)
+
+
+Started GET "/" for ::1 at 2024-12-20 09:46:58 +0900
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 439)
+  Rendered layout layouts/application.html.erb (Duration: 23.3ms | Allocations: 1211)
+Completed 200 OK in 41ms (Views: 30.3ms | ActiveRecord: 0.0ms | Allocations: 5411)
+
+
+Started GET "/" for ::1 at 2024-12-20 09:48:55 +0900
+Processing by SchedulesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering schedules/index.html.erb within layouts/application
+  Rendered schedules/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 125)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 576)
+
+
