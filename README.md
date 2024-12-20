@@ -1,1 +1,1 @@
-# rails-sc
+# rails-schedule
