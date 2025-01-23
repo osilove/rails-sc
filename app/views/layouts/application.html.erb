@@ -1,363 +1,426 @@
+<!-- filepath: /C:/Users/js2314/JS2314奥村大策/rails-sc-master/app/views/layouts/application.html.erb -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="csrf-token" content="<%= csrf_meta_tags %>">
 <title>週間スケジュール</title>
 <style>
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 .header {
-    background-color: #f0f0f0;
-    padding: 10px;
-    text-align: center;
-    position: relative;
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+  position: relative;
 }
 .top-image-placeholder {
-    height: 100px;
-    background-color: #ddd;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    font-weight: bold;
-    color: #555;
-    border-bottom: 2px solid #ccc;
+  height: 100px;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  border-bottom: 2px solid #ccc;
 }
 .schedule {
-    display: table;
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 .schedule th, .schedule td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-    vertical-align: top;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  vertical-align: top;
 }
 .schedule th {
-    background-color: #f9f9f9;
+  background-color: #f9f9f9;
 }
 .memo-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 .memo-list li {
-    background-color: #eef;
-    margin: 5px 0;
-    padding: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background-color: #ffffff
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .memo-list li.important {
-    color: #ff0000; /* 赤文字で強調 */
+  color: #ff0000;
 }
 .add-memo-btn {
-    margin-top: 5px;
-    padding: 5px 10px;
-    font-size: 12px;
+  margin-top: 5px;
+  padding: 5px 10px;
+  font-size: 12px;
 }
 button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 .icon-button {
-    margin-left: 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    color: #333;
+  margin-left: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #333;
 }
 .icon-button:hover {
-    color: #007bff;
+  color: #007bff;
 }
 .delete-button {
-    font-size: 18px;
-    color: #dc3545;
-    cursor: pointer;
+  font-size: 18px;
+  color: #dc3545;
+  cursor: pointer;
 }
 .delete-button:hover {
-    color: #9e2a2a;
+  color: #9e2a2a;
 }
 .today {
-    background-color: #ffffcc; /* 当日は黄色 */
+  background-color: #ffffcc;
 }
 .current-time {
-    background-color: #ffffcc !important; /* 現在進行中の予定 */
+  background-color: #ffffcc !important;
 }
 .bottom-image-placeholder {
-    height: 100px;
-    background-color: #ddd;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    font-weight: bold;
-    color: #555;
-    border-top: 2px solid #ccc;
+  height: 100px;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  border-top: 2px solid #ccc;
 }
+.footer {
+  background-color: #f0f0f0;
+  text-align: center;
+  padding: 10px;
+  margin-bottom:0px; /* Adjust space above footer */
+}
+
+.schedule td {
+  padding: 0;    /* セルの内側の余白を無くす */
+  overflow: hidden
+  line-height center
+}
+
+.add-memo-button {
+  width: 100%;      /* ボタンをセルいっぱいに広げる */
+  height: 100%;     /* ボタンの高さもセルに合わせる */
+  padding: 0px;     /* ボタン内の余白 */
+  font-size: 18px;  /* フォントサイズ */
+  background-color: #ffffff; /* 背景色を白に */
+  color: transparent; /* テキストの色を透明に */
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box; /* パディングを含めてサイズ指定 */
+  transition: background-color 0.3s ease;
+}
+
+/* ボタンがホバーされたときの背景色 */
+.add-memo-button:hover {
+  background-color: #ffffff; /* ホバー時の背景色も白に */
+  color: transparent; /* ホバー時もテキストは透明 */
+}
+.renderWeek{
+line-height center   
+}
+
 </style>
 </head>
 <body>
-<div class="header">
-    <button id="prevWeek">← 前の週</button>
-    <span id="currentWeek"></span>
-    <button id="nextWeek">次の週 →</button>
-</div>
+
 
 <div class="top-image-placeholder" id="topImage">
-    <img id="monthImage" src="" alt="月の画像" style="height: 100%; width: auto;">
+<img id="monthImage" src="" alt="月の画像" style="height: 100%; width: auto;">
 </div>
 
 <table class="schedule">
 <thead>
 <tr>
-    <th>日付</th>
-    <th>予定</th>
+<th>日付</th>
+<th>予定</th>
 </tr>
 </thead>
 <tbody id="scheduleBody"></tbody>
 </table>
 
-<div class="bottom-image-placeholder" id="bottomImage">
-    <img src="assets/dragon.png" alt="ドラゴン画像" style="height: 100%; width: auto;">
+<div class="footer">
+<button id="prevWeek">← LastWeek</button>
+<span id="currentWeek"></span>
+<button id="nextWeek">NextWeek →</button>
 </div>
 
-<script>let scheduleBody = document.getElementById('scheduleBody');
-    let currentWeekSpan = document.getElementById('currentWeek');
-    let prevWeekButton = document.getElementById('prevWeek');
-    let nextWeekButton = document.getElementById('nextWeek');
-    let monthImage = document.getElementById('monthImage');
-    
-    let today = new Date();
-    today.setHours(0, 0, 0, 0);
-    let currentDate = new Date(today);
-    currentDate.setDate(today.getDate() - today.getDay() + 1);
-    
-    let getWeekKey = (date) => {
-        let year = date.getFullYear();
-        let month = date.getMonth() + 1;
-        let day = date.getDate();
-        return `${year}-${month}-${day}`;
-    };
-    
-    let loadMemos = (key) => {
-        let memos = localStorage.getItem(key);
-        return memos ? JSON.parse(memos) : [];
-    };
-    
-    let saveMemos = (key, memos) => {
-        localStorage.setItem(key, JSON.stringify(memos));
-    };
-    
-    let updateMonthImage = () => {
-        let currentMonth = currentDate.getMonth() + 1;
-        monthImage.src = `assets/${currentMonth}月.png`;
-        monthImage.alt = `${currentMonth}月の画像`;
-    };
-    
-    let renderWeek = () => {
-    scheduleBody.innerHTML = '';
-    let weekStart = new Date(currentDate);
+<div class="bottom-image-placeholder" id="bottomImage">
+<img src="../assets/dragon.png" alt="ドラゴン画像" style="height: 100%; width: auto;">
+</div>
 
-    currentWeekSpan.textContent = `${weekStart.getFullYear()}年${weekStart.getMonth() + 1}月第${Math.ceil(weekStart.getDate() / 7)}週`;
+<script>
+let scheduleBody = document.getElementById('scheduleBody');
+let currentWeekSpan = document.getElementById('currentWeek');
+let prevWeekButton = document.getElementById('prevWeek');
+let nextWeekButton = document.getElementById('nextWeek');
+let monthImage = document.getElementById('monthImage');
 
-    if (weekStart <= today) {
-        prevWeekButton.disabled = true;
-    } else {
-        prevWeekButton.disabled = false;
-    }
+let today = new Date();
+today.setHours(0, 0, 0, 0);
+let currentDate = new Date(today);
+currentDate.setDate(today.getDate() - today.getDay() + 1);
 
-    updateMonthImage();
-
-    let weekKey = getWeekKey(weekStart);
-    let weeklyMemos = loadMemos(weekKey);
-
-    for (let i = 0; i < 7; i++) {
-        let day = new Date(weekStart);
-        day.setDate(weekStart.getDate() + i);
-
-        let dayOfWeek = ['日', '月', '火', '水', '木', '金', '土'][day.getDay()];
-        let dateStr = `${day.getDate()}(${dayOfWeek})`;
-
-        let row = document.createElement('tr');
-        let dateCell = document.createElement('td');
-        dateCell.textContent = dateStr;
-
-        if (day.getTime() === today.getTime()) {
-            dateCell.classList.add('today');
-        }
-
-        let memoCell = document.createElement('td');
-        let memoList = document.createElement('ul');
-        memoList.className = 'memo-list';
-
-        (weeklyMemos[i] || []).forEach((memo, index) => {
-            let now = new Date();
-            if (now >= new Date(`${day.toDateString()} ${memo.startTime}`) && now < new Date(`${day.toDateString()} ${memo.endTime}`)) {
-                memoCell.classList.add('current-time');
-            }
-
-            let memoItem = document.createElement('li');
-            memoItem.textContent = `${memo.text} (${memo.startTime} - ${memo.endTime})`;
-
-            if (memo.important) {
-                memoItem.classList.add('important');
-            }
-
-            // 予定内容クリック時の編集機能
-            memoItem.addEventListener('click', () => {
-                // 編集時に「普通」「重要」ボタンや「削除」ボタンは表示しないように
-                let newMemoText = prompt('予定内容を編集してください:', memo.text);
-                if (newMemoText === null || newMemoText.trim() === "") {
-                    // 内容が空白の場合、そのメモを削除
-                    if (confirm('内容が空白のため、この予定を削除しますか？')) {
-                        weeklyMemos[i] = weeklyMemos[i].filter((m) => m !== memo);
-                        saveMemos(weekKey, weeklyMemos);
-                        renderWeek();
-                    }
-                    return;
-                }
-
-                let newStartTime = prompt('開始時間を編集してください（例: 11:00 または 11）:', memo.startTime);
-                let newEndTime = prompt('終了時間を編集してください（例: 12:00 または 12）:', memo.endTime);
-
-                newStartTime = formatTime(newStartTime);
-                newEndTime = formatTime(newEndTime);
-
-                if (!newMemoText || !newStartTime || !newEndTime) {
-                    alert('すべての項目を正しく入力してください！');
-                    return;
-                }
-
-                if (newEndTime <= newStartTime) {
-                    alert('終了時間は開始時間より後である必要があります！');
-                    return;
-                }
-
-                // 既存の予定を更新
-                weeklyMemos[i][index] = { ...memo, text: newMemoText, startTime: newStartTime, endTime: newEndTime };
-                saveMemos(weekKey, weeklyMemos);
-                renderWeek();
-            });
-
-            let importantButton = document.createElement('button');
-            importantButton.textContent = memo.important ? '重要' : '普通';
-            importantButton.className = 'icon-button';
-            importantButton.addEventListener('click', (event) => {
-                // 重要ボタンがクリックされた場合、編集ダイアログは表示しない
-                event.stopPropagation();  // イベントのバブルを停止
-                memo.important = !memo.important;
-                saveMemos(weekKey, weeklyMemos);
-                renderWeek();
-            });
-
-            let deleteButton = document.createElement('button');
-            deleteButton.textContent = '削除';
-            deleteButton.className = 'delete-button';
-            deleteButton.addEventListener('click', (event) => {
-                // 削除ボタンがクリックされた場合、編集ダイアログは表示しない
-                event.stopPropagation();  // イベントのバブルを停止
-                if (confirm('本当に削除しますか？')) {
-                    weeklyMemos[i] = weeklyMemos[i].filter((m) => m !== memo);
-                    saveMemos(weekKey, weeklyMemos);
-                    renderWeek();
-                }
-            });
-
-            memoItem.appendChild(importantButton);
-            memoItem.appendChild(deleteButton);
-            memoList.appendChild(memoItem);
-        });
-
-        let addMemoBtn = document.createElement('button');
-        addMemoBtn.className = 'add-memo-btn';
-        addMemoBtn.textContent = '予定を追加';
-        addMemoBtn.addEventListener('click', () => {
-            if ((weeklyMemos[i] || []).length >= 5) {
-                alert('1日に追加できる予定は最大5件までです。');
-                return;
-            }
-
-            let memoText = prompt('予定内容を入力してください:').trim();
-            let memoStartTime = prompt('開始時間を入力してください（例: 11:00 または 11）:').trim();
-            let memoEndTime = prompt('終了時間を入力してください（例: 12:00 または 12）:').trim();
-
-            memoStartTime = formatTime(memoStartTime);
-            memoEndTime = formatTime(memoEndTime);
-
-            if (!memoText || !memoStartTime || !memoEndTime) {
-                alert('すべての項目を正しく入力してください！');
-                return;
-            }
-
-            if (memoEndTime <= memoStartTime) {
-                alert('終了時間は開始時間より後である必要があります！');
-                return;
-            }
-
-            // 週の予定に同じ時間帯の予定がないかチェック
-            if ((weeklyMemos[i] || []).some((m) => (m.startTime < memoEndTime && m.endTime > memoStartTime))) {
-                alert('この時間には既に予定があります！');
-                return;
-            }
-
-            // 同じ週に同じ内容の予定がないかチェック
-            if (weeklyMemos.some((dayMemos) => (dayMemos || []).some((memo) => memo.text === memoText))) {
-                alert('同じ週に同じ内容の予定は登録できません！');
-                return;
-            }
-
-            let newMemo = { text: memoText, startTime: memoStartTime, endTime: memoEndTime, important: false };
-            if (!weeklyMemos[i]) {
-                weeklyMemos[i] = [];
-            }
-            weeklyMemos[i].push(newMemo);
-            weeklyMemos[i].sort((a, b) => a.startTime.localeCompare(b.startTime));
-
-            saveMemos(weekKey, weeklyMemos);
-            renderWeek();
-        });
-
-        memoCell.appendChild(memoList);
-        memoCell.appendChild(addMemoBtn);
-
-        row.appendChild(dateCell);
-        row.appendChild(memoCell);
-        scheduleBody.appendChild(row);
-    }
+let getWeekKey = (date) => {
+let year = date.getFullYear();
+let month = date.getMonth() + 1;
+let day = date.getDate();
+return `${year}-${month}-${day}`;
 };
 
-    
-    let formatTime = (time) => {
-        let parts = time.split(':');
-        if (parts.length === 1) {
-            parts.push('00');
-        }
-        return `${parts[0].padStart(2, '0')}:${parts[1].padStart(2, '0')}`;
-    };
-    
-    prevWeekButton.addEventListener('click', () => {
-        currentDate.setDate(currentDate.getDate() - 7);
-        renderWeek();
-    });
-    
-    nextWeekButton.addEventListener('click', () => {
-        currentDate.setDate(currentDate.getDate() + 7);
-        renderWeek();
-    });
-    
+let loadMemos = (key) => {
+let memos = localStorage.getItem(key);
+return memos ? JSON.parse(memos) : [];
+};
+
+let saveMemos = (key, memos) => {
+localStorage.setItem(key, JSON.stringify(memos));
+};
+
+let updateMonthImage = () => {
+let currentMonth = currentDate.getMonth() + 1;
+monthImage.src = `../assets/${currentMonth}月.png`;
+monthImage.alt = `${currentMonth}月の画像`;
+};
+
+let renderWeek = () => {
+scheduleBody.innerHTML = '';
+let weekStart = new Date(currentDate);
+
+currentWeekSpan.textContent = `${weekStart.getFullYear()}年${weekStart.getMonth() + 1}月第${Math.ceil(weekStart.getDate() / 7)}週`;
+
+if (weekStart <= today) {
+prevWeekButton.disabled = true;
+} else {
+prevWeekButton.disabled = false;
+}
+
+updateMonthImage();
+
+let weekKey = getWeekKey(weekStart);
+let weeklyMemos = loadMemos(weekKey);
+
+for (let i = 0; i < 7; i++) {
+let day = new Date(weekStart);
+day.setDate(weekStart.getDate() + i);
+
+let dayOfWeek = ['日', '月', '火', '水', '木', '金', '土'][day.getDay()];
+let dateStr = `${day.getDate()}(${dayOfWeek})`;
+
+let row = document.createElement('tr');
+let dateCell = document.createElement('td');
+dateCell.textContent = dateStr;
+
+if (day.getTime() === today.getTime()) {
+dateCell.classList.add('today');
+}
+
+let memoCell = document.createElement('td');
+let memoList = document.createElement('ul');
+memoList.className = 'memo-list';
+
+(weeklyMemos[i] || []).forEach((memo, index) => {
+let now = new Date();
+if (now >= new Date(`${day.toDateString()} ${memo.startTime}`) && now < new Date(`${day.toDateString()} ${memo.endTime}`)) {
+memoCell.classList.add('current-time');
+}
+
+let memoItem = document.createElement('li');
+memoItem.textContent = `${memo.text} (${memo.startTime} - ${memo.endTime})`;
+
+if (memo.important) {
+memoItem.classList.add('important');
+}
+
+memoItem.addEventListener('click', () => {
+let newMemoText = prompt('予定内容を編集してください:', memo.text);
+if (newMemoText === null || newMemoText.trim() === "") {
+if (confirm('内容が空白のため、この予定を削除しますか？')) {
+weeklyMemos[i] = weeklyMemos[i].filter((m) => m !== memo);
+saveMemos(weekKey, weeklyMemos);
+renderWeek();
+}
+return;
+}
+
+let newStartTime = prompt('開始時間を編集してください（例: 11:00 または 11）:', memo.startTime);
+let newEndTime = prompt('終了時間を編集してください（例: 12:00 または 12）:', memo.endTime);
+
+newStartTime = formatTime(newStartTime);
+newEndTime = formatTime(newEndTime);
+
+if (!newMemoText || !newStartTime || !newEndTime) {
+alert('すべての項目を正しく入力してください！');
+return;
+}
+
+if (newEndTime <= newStartTime) {
+alert('終了時間は開始時間より後である必要があります！');
+return;
+}
+
+weeklyMemos[i][index] = { ...memo, text: newMemoText, startTime: newStartTime, endTime: newEndTime };
+saveMemos(weekKey, weeklyMemos);
+renderWeek();
+});
+
+let importantButton = document.createElement('button');
+importantButton.textContent = memo.important ? '重要' : '普通';
+importantButton.className = 'icon-button';
+importantButton.addEventListener('click', (event) => {
+event.stopPropagation();
+memo.important = !memo.important;
+saveMemos(weekKey, weeklyMemos);
+renderWeek();
+});
+
+let deleteButton = document.createElement('button');
+deleteButton.textContent = '削除';
+deleteButton.className = 'delete-button';
+deleteButton.addEventListener('click', (event) => {
+event.stopPropagation();
+if (confirm('本当に削除しますか？')) {
+weeklyMemos[i] = weeklyMemos[i].filter((m) => m !== memo);
+saveMemos(weekKey, weeklyMemos);
+renderWeek();
+}
+});
+
+memoItem.appendChild(importantButton);
+memoItem.appendChild(deleteButton);
+memoList.appendChild(memoItem);
+});
+
+let addMemoBtn = document.createElement('button');
+addMemoBtn.className = 'add-memo-button';
+addMemoBtn.textContent = '追加追加追加追加追加追加追加追加追';
+addMemoBtn.addEventListener('click', () => {
+});
+memoCell.appendChild(addMemoBtn);
+
+addMemoBtn.addEventListener('click', () => {
+    if ((weeklyMemos[i] || []).length >= 5) {
+        alert('1日に追加できる予定は最大5件までです。');
+        return;
+    }
+
+    let memoText = prompt('予定内容を入力してください:').trim();
+    let memoStartTime = prompt('開始時間を入力してください（例: 11:00 または 11）:').trim();
+    let memoEndTime = prompt('終了時間を入力してください（例: 12:00 または 12）:').trim();
+
+    memoStartTime = formatTime(memoStartTime);
+    memoEndTime = formatTime(memoEndTime);
+
+    if (!memoText || !memoStartTime || !memoEndTime) {
+        alert('すべての項目を正しく入力してください！');
+        return;
+    }
+
+    if (memoEndTime <= memoStartTime) {
+        alert('終了時間は開始時間より後である必要があります！');
+        return;
+    }
+
+    if (memoStartTime >= '24:00'){
+        alert('翌日から始まるスケジュールは入力できません')
+        return;
+    }
+
+    if (memoEndTime >= '24:00'){
+        alert('日をまたぐスケジュールは登録できません')
+        return;
+    }
+
+    if ((weeklyMemos[i] || []).some((m) => (m.startTime < memoEndTime && m.endTime > memoStartTime))) {
+        alert('この時間には既に予定があります！');
+        return;
+    }
+
+    if (weeklyMemos.some((dayMemos) => (dayMemos || []).some((memo) => memo.text === memoText))) {
+        alert('同じ週に同じ内容の予定は登録できません！');
+        return;
+    }
+
+    let newMemo = { text: memoText, startTime: memoStartTime, endTime: memoEndTime, important: false };
+
+    if (!weeklyMemos[i]) {
+        weeklyMemos[i] = [];
+    }
+
+    weeklyMemos[i].push(newMemo);
+    weeklyMemos[i].sort((a, b) => a.startTime.localeCompare(b.startTime));
+
+  
+    fetch('/add_memo', {
+      method: 'POST',
+      headers: {
+      'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+      weekKey: getWeekKey(currentDate), 
+      dayIndex: i, 
+      memo: newMemo // 新しく追加したメモ
+      })
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
+      
+    saveMemos(getWeekKey(currentDate), weeklyMemos);
     renderWeek();
-    
+});
+memoCell.appendChild(memoList);
+memoCell.appendChild(addMemoBtn);
+
+row.appendChild(dateCell);
+row.appendChild(memoCell);
+scheduleBody.appendChild(row);
+}
+};
+
+let formatTime = (time) => {
+let parts = time.split(':');
+if (parts.length === 1) {
+parts.push('00');
+}
+return `${parts[0].padStart(2, '0')}:${parts[1].padStart(2, '0')}`;
+};
+
+prevWeekButton.addEventListener('click', () => {
+currentDate.setDate(currentDate.getDate() - 7);
+renderWeek();
+});
+
+nextWeekButton.addEventListener('click', () => {
+currentDate.setDate(currentDate.getDate() + 7);
+renderWeek();
+});
+
+renderWeek();
+
 </script>
 </body>
 </html>
