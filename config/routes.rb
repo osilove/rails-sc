@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-  # devise_for :users を1回だけ定義します
-  devise_for :users, controllers: {
-    registrations: 'users/registrations'  # ユーザー登録をカスタマイズしたい場合はここを指定
-  }
+  resources :schedules, only: [:index, :create, :update, :destroy] do
+    resources :memos, only: [:index, :create, :destroy]
+  end
 
-  # スケジュールのルーティング
-  resources :schedules, only: [:index, :create, :update, :destroy]
+  post '/add_memo', to: 'memos#create'
 
-  # ルートページをスケジュール一覧ページに設定
-  root 'schedules#index'
+root 'schedules#index'
 end
