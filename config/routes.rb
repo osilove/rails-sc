@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
 
   post '/add_memo', to: 'memos#create'
-
-root 'schedules#index'
+  get '/load_memos', to: 'memos#index'  # ここでデータを取得するエンドポイントを追加
+  get 'read_memos', to: 'memos#read_memos'
+  root 'schedules#index'
 end
