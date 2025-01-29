@@ -1,0 +1,16 @@
+---
+- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  week_key: '2025-1-27'
+  day_index: 2
+  memo: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    text: a
+    startTime: '12:00'
+    endTime: '13:00'
+    important: false
+- :week_key: '2025-2-3'
+  :day_index: 2
+  :memo: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    text: '1'
+    startTime: '13:00'
+    endTime: '18:00'
+    important: false
