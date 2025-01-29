@@ -1,149 +1,15 @@
-<!-- filepath: /C:/Users/js2314/JS2314奥村大策/rails-sc-master/app/views/layouts/application.html.erb -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="csrf-token" content="<%= csrf_meta_tags %>">
+<meta name="csrf-token" content="csrf_meta_tags">
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+
 <title>週間スケジュール</title>
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-.header {
-  background-color: #f0f0f0;
-  padding: 10px;
-  text-align: center;
-  position: relative;
-}
-.top-image-placeholder {
-  height: 100px;
-  background-color: #ddd;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  font-weight: bold;
-  color: #555;
-  border-bottom: 2px solid #ccc;
-}
-.schedule {
-  display: table;
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-.schedule th, .schedule td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: center;
-  vertical-align: top;
-}
-.schedule th {
-  background-color: #f9f9f9;
-}
-.memo-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-.memo-list li {
-  background-color: #ffffff
-  margin: 5px 0;
-  padding: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.memo-list li.important {
-  color: #ff0000;
-}
-.add-memo-btn {
-  margin-top: 5px;
-  padding: 5px 10px;
-  font-size: 12px;
-}
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-.icon-button {
-  margin-left: 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  color: #333;
-}
-.icon-button:hover {
-  color: #007bff;
-}
-.delete-button {
-  font-size: 18px;
-  color: #dc3545;
-  cursor: pointer;
-}
-.delete-button:hover {
-  color: #9e2a2a;
-}
-.today {
-  background-color: #ffffcc;
-}
-.current-time {
-  background-color: #ffffcc !important;
-}
-.bottom-image-placeholder {
-  height: 100px;
-  background-color: #ddd;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  font-weight: bold;
-  color: #555;
-  border-top: 2px solid #ccc;
-}
-.footer {
-  background-color: #f0f0f0;
-  text-align: center;
-  padding: 10px;
-  margin-bottom:0px; /* Adjust space above footer */
-}
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+<%= stylesheet_link_tag 'application', media: 'all' %>
 
-.schedule td {
-  padding: 0;    /* セルの内側の余白を無くす */
-  overflow: hidden
-  line-height center
-}
-
-.add-memo-button {
-  width: 100%;      /* ボタンをセルいっぱいに広げる */
-  height: 100%;     /* ボタンの高さもセルに合わせる */
-  padding: 0px;     /* ボタン内の余白 */
-  font-size: 18px;  /* フォントサイズ */
-  background-color: #ffffff; /* 背景色を白に */
-  color: transparent; /* テキストの色を透明に */
-  border: none;
-  cursor: pointer;
-  text-align: center;
-  box-sizing: border-box; /* パディングを含めてサイズ指定 */
-  transition: background-color 0.3s ease;
-}
-
-/* ボタンがホバーされたときの背景色 */
-.add-memo-button:hover {
-  background-color: #ffffff; /* ホバー時の背景色も白に */
-  color: transparent; /* ホバー時もテキストは透明 */
-}
-.renderWeek{
-line-height center   
-}
-
-</style>
 </head>
 <body>
 
@@ -392,6 +258,8 @@ addMemoBtn.addEventListener('click', () => {
     saveMemos(getWeekKey(currentDate), weeklyMemos);
     renderWeek();
 });
+
+
 memoCell.appendChild(memoList);
 memoCell.appendChild(addMemoBtn);
 
@@ -418,8 +286,107 @@ nextWeekButton.addEventListener('click', () => {
 currentDate.setDate(currentDate.getDate() + 7);
 renderWeek();
 });
+document.addEventListener('keydown', function(event) {
+
+  if (event.key === 'Escape') {
+ 
+    fetch('/load_memos')
+      .then(response => response.json())
+      .then(data => {
+        console.log('最新のメモデータ:', data);
+        
+     
+        updateScheduleWithMemos(data);
+      })
+      .catch(error => console.error('メモの読み込みエラー:', error));
+  }
+});
+let loadYAML = () => {
+  fetch('/memos/load_memos')  // Railsで作成したエンドポイントを呼び出す
+    .then(response => response.json())  // JSON形式でレスポンスを受け取る
+    .then(data => {
+      if (data.memos) {
+        console.log('Parsed YAML:', data.memos);
+        updateScheduleWithMemos(data.memos);  // スケジュールに反映
+      } else {
+        console.error('YAMLの読み込みに失敗しました:', data.error);
+      }
+    })
+    .catch(error => {
+      console.error('YAMLファイルの読み込みに失敗しました:', error);
+    });
+};
+
+function updateScheduleWithMemos(memos) {
+  let scheduleBody = document.getElementById('scheduleBody');
+
+  // memosが配列でない場合、配列に変換
+  if (!Array.isArray(memos)) {
+    console.warn('memosが配列ではないので、配列に変換します。');
+    memos = [memos];  // 配列に変換
+  }
+
+  // メモデータが空でないことを確認
+  if (!memos || memos.length === 0) {
+    console.warn('メモが空です。');
+    return;
+  }
+
+  memos.forEach(memo => {
+    // memoの構造をログで確認
+    console.log('memo:', memo);
+    
+    // memo内のmemosプロパティにアクセス
+    let memoData = memo.memos && memo.memos[0];  // memo.memos[0]にアクセス
+
+    // memoDataが存在しない場合は無効なメモとして扱う
+    if (!memoData) {
+      console.error('Invalid memo format:', memo);
+      return;
+    }
+
+    // memoDataから必要なデータを取得
+    let weekKey = memoData.week_key || '不明';
+    let dayIndex = memoData.day_index || '不明';
+    let text = memoData.text || 'a';  // memoDataの中のtextを取得
+    let startTime = memoData.startTime || '12:00';  // startTimeを取得
+    let endTime = memoData.endTime || '13:00';  // endTimeを取得
+    let important = memoData.important || true;  // importantを取得
+
+    // 新しい行を作成
+    let row = document.createElement('tr');
+
+    // week_key と day_index を表示
+    let dateCell = document.createElement('td');
+    dateCell.textContent = `week_key?: ${weekKey}, index?: ${dayIndex}`;
+    row.appendChild(dateCell);
+
+    // memoの内容を表示
+    let memoCell = document.createElement('td');
+    let memoText = document.createElement('p');
+    memoText.textContent = `メモ: ${text}`;
+    memoCell.appendChild(memoText);
+
+    // startTime と endTime を表示
+    let timeText = document.createElement('p');
+    timeText.textContent = `時間: ${startTime} - ${endTime}`;
+    memoCell.appendChild(timeText);
+
+    // importantを表示（必要に応じて）
+    if (important) {
+      let importantText = document.createElement('p');
+      importantText.textContent = '[重要]';
+      memoCell.appendChild(importantText);
+    }
+
+    row.appendChild(memoCell);
+    scheduleBody.appendChild(row);
+  });
+}
+
 
 renderWeek();
+
 
 </script>
 </body>
